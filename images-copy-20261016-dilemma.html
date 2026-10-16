@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><title>困境文图片复制</title></head>
+<body style="font-family:sans-serif;padding:24px;">
+<p>按顺序点复制按钮，到微信编辑器对应光标位置 Ctrl+V 粘贴图片。每张贴完确认渲染再继续。</p>
+<script>
+function copyimg(id,btn,url){
+  var htm='<p style="text-align:center;margin:0;"><img src="'+url+'" style="max-width:100%;"/></p>';
+  navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([htm],{type:'text/html'})})]).then(function(){btn.textContent='OK-'+id;}).catch(function(e){btn.textContent='ERR';alert(e);});
+}
+</script>
+
+<h3>1. audio-bar（贴到正文最顶部，hero 之前）</h3>
+<button onclick="copyimg('audio',this,'https://mmbiz.qpic.cn/sz_mmbiz_png/gE49HUl7UXAGrTAlDm461nBIXI4dPUXoAxWjIntrHc8XsNnZOOicpR7Niby9iaOKiaTiaNUWFBQA6EJvuRVWHdg4nmF4ic5m3ufyibgP92KicmVibyeQ/640?wx_fmt=png&from=appmsg')">复制 audio-bar</button>
+
+<h3>2. end-bar（贴到正文结束后）</h3>
+<button onclick="copyimg('end',this,'https://mmbiz.qpic.cn/mmbiz_png/gE49HUl7UXCNvMLO7ytHOzbOLEFuoYKQOU9I9Py0KjXY09IVMg3tsaMN3Xsd45UGJpbKWxe4uYbSdznRBsicYUah50f7vicjg1dDQbkwyc7Lw/640?wx_fmt=png&from=appmsg')">复制 end-bar</button>
+
+<h3>3. rm-combined（贴到 end-bar 之后）</h3>
+<button onclick="copyimg('rm',this,'https://mmbiz.qpic.cn/sz_mmbiz_png/gE49HUl7UXDrowic6sMZK9LQKJpLwt9lniaSic2ribFK3UDe06LjRj2icjdiboOFQqJGafcPJGvcOJu7dH9sOvfqWRWwlX4SJ8oRdIgnw4s0FqcjI/640?wx_fmt=png&from=appmsg')">复制 rm-combined</button>
+
+<h3>4. disclaimer-card（贴到最后）</h3>
+<button onclick="copyimg('disc',this,'https://mmbiz.qpic.cn/mmbiz_png/gE49HUl7UXDPH9gEM5CjrRlvm5tE4icRYJHGKqI06lVtXcRqCvwriasHubIL97axNO2eVnskTsGUzajmhZHAO6ISVNhyIwkax4Uu3hAadh2lI/640?wx_fmt=png&from=appmsg')">复制 disclaimer-card</button>
+
+</body></html>
